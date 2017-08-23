@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">BakingApp</string>
+
+    <string name="node_recipe_id">id</string>
+    <string name="node_recipe_name">name</string>
+    <string name="node_recipe_ingredients">ingredients</string>
+    <string name="node_recipe_steps">steps</string>
+    <string name="node_recipe_servings">servings</string>
+    <string name="node_recipe_image">image</string>
+
+    <string name="node_ingredients_quantity">quantity</string>
+    <string name="node_ingredients_measure">measure</string>
+    <string name="node_ingredients_ingredient">ingredient</string>
+
+    <string name="node_steps_id">id</string>
+    <string name="node_steps_shortDescription">shortDescription</string>
+    <string name="node_steps_description">description</string>
+    <string name="node_steps_videoURL">videoURL</string>
+    <string name="node_steps_thumbnailURL">thumbnailURL</string>
+
+    <string name="recipe_servings">%1$s servings</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingredient_quantity">%1$s %2$s</string>
+    <string name="recipe">%1$s Recipe</string>
+    <string name="steps">Steps</string>
+
+    <string name="todo_key">todo</string>
+    <string name="recipe_key">recipeKey</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="recipe_shared_preference">recipeSharedPref</string>
+    <string name="you_have_no_todo_recipe">You have no todo recipe.</string>
+    <string name="no_connection_exo_player">Can\'t download video, please check your connection</string>
+    
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+</resources>

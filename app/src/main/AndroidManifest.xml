@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.tahutelorcommunity.bakingapp">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/chef"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/chef"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service android:name=".service.ListWidgetService"
+                 android:exported="false"
+                 android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:name=".ui.MainActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.StepsActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.StepDetailActivity">
+        </activity>
+
+        <receiver android:name=".ui.IngredientsWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ingredients_widget_info"/>
+        </receiver>
+    </application>
+
+</manifest>

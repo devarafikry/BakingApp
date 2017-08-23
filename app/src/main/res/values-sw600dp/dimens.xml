@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_recipe_height">400dp</dimen>
+    <dimen name="step_recycler_view_margin_bottom">@dimen/abc_action_bar_default_height_material</dimen>
+
+</resources>

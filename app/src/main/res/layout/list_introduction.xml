@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/card_step"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                style="@style/Medium.Primary"
+                android:layout_weight="3"
+                android:id="@+id/step_short_description"
+                android:layout_width="0dp"
+                tools:text="Pour the sugar."
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/step_thumbnail"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/step_image_height"
+                android:layout_weight="2"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
