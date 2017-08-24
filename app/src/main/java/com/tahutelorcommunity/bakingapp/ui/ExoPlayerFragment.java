@@ -127,4 +127,16 @@ public class ExoPlayerFragment extends Fragment{
         mExoplayer.release();
         mExoplayer = null;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        releasePlayer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        releasePlayer();
+    }
 }
