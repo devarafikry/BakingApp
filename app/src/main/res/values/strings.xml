@@ -32,8 +32,8 @@
     <string name="add_widget">Add widget</string>
     <string name="recipe_shared_preference">recipeSharedPref</string>
     <string name="you_have_no_todo_recipe">You have no todo recipe.</string>
-    <string name="no_connection_exo_player">Can\'t download video, please check your connection</string>
-    
+    <string name="no_connection_exo_player">Can\'t download video, please check your connection.</string>
+    <string name="no_connection_main">Can\'t retrieve data, please check your connection.</string>
     <string name="next">Next</string>
     <string name="prev">Prev</string>
 </resources>

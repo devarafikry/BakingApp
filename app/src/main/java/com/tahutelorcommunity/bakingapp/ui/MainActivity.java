@@ -2,6 +2,7 @@ package com.tahutelorcommunity.bakingapp.ui;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.design.widget.Snackbar;
 import android.support.test.espresso.IdlingResource;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -12,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.tahutelorcommunity.bakingapp.R;
 import com.tahutelorcommunity.bakingapp.adapter.RecipeAdapter;
@@ -19,6 +21,7 @@ import com.tahutelorcommunity.bakingapp.idlingResource.SimpleIdlingResource;
 import com.tahutelorcommunity.bakingapp.model.Recipe;
 import com.tahutelorcommunity.bakingapp.utils.JsonUtils;
 import com.tahutelorcommunity.bakingapp.utils.NetworkUtils;
+import com.tahutelorcommunity.bakingapp.utils.SnackbarUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 public class MainActivity extends AppCompatActivity implements Callback, LoaderManager.LoaderCallbacks<ArrayList<Recipe>>{
     private final int LOADER_PARSE_JSON_ID = 78;
     private final String BUNDLE_JSON_DATA = "jsonData";
+    private Snackbar snackbar;
 
     @Nullable
     private SimpleIdlingResource idlingResource;
@@ -64,7 +68,10 @@ public class MainActivity extends AppCompatActivity implements Callback, LoaderM
 
     @Override
     public void onFailure(Call call, IOException e) {
-
+        SnackbarUtil.showSnackBar(findViewById(R.id.main_activity_frame_layout),
+                snackbar,
+                getString(R.string.no_connection_main),
+                Snackbar.LENGTH_LONG);
     }
 
     @Override

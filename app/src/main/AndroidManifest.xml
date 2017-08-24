@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".ui.StepsActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

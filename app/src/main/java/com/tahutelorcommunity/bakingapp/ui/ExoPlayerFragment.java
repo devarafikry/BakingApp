@@ -47,6 +47,7 @@ public class ExoPlayerFragment extends Fragment{
     public static final String POSITION_BUNDLE_KEY = "position";
 
     private long position ;
+    private Uri uri;
     private String s_thumbnailUri;
     public ExoPlayerFragment() {
         // Required empty public constructor
@@ -54,7 +55,7 @@ public class ExoPlayerFragment extends Fragment{
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putLong(POSITION_BUNDLE_KEY, mExoplayer.getCurrentPosition());
+        outState.putLong(POSITION_BUNDLE_KEY, position);
     }
 //
     @Override
@@ -73,7 +74,7 @@ public class ExoPlayerFragment extends Fragment{
         if(savedInstanceState != null){
             position = savedInstanceState.getLong(POSITION_BUNDLE_KEY);
         }
-        Uri uri = null;
+        uri = null;
         if(getArguments() != null){
             if(getArguments().getString(MEDIA_URI_KEY) != null){
                 uri = Uri.parse(getArguments().getString(MEDIA_URI_KEY));
@@ -82,7 +83,7 @@ public class ExoPlayerFragment extends Fragment{
         }
 
         if(uri != null){
-            initializePlayer(uri);
+            initializePlayer(uri, position);
         }
         return view;
     }
@@ -95,7 +96,15 @@ public class ExoPlayerFragment extends Fragment{
         }
     }
 
-    private void initializePlayer(Uri mediaUri){
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mExoplayer == null){
+            initializePlayer(uri,position);
+        }
+    }
+
+    private void initializePlayer(Uri mediaUri, long position_seek){
         mExoplayer = ExoPlayerFactory.newSimpleInstance(
                 getContext(),
                 new DefaultTrackSelector(),
@@ -119,13 +128,16 @@ public class ExoPlayerFragment extends Fragment{
         }
         exo_player_view.setPlayer(mExoplayer);
         exo_player_view.setBackgroundColor(getResources().getColor(android.R.color.black));
-        mExoplayer.seekTo(position);
+        mExoplayer.seekTo(position_seek);
     }
 
     private void releasePlayer(){
-        mExoplayer.stop();
-        mExoplayer.release();
-        mExoplayer = null;
+        if(mExoplayer != null){
+            position = mExoplayer.getCurrentPosition();
+            mExoplayer.stop();
+            mExoplayer.release();
+            mExoplayer = null;
+        }
     }
 
     @Override
